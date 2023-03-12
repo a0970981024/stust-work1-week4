@@ -1,20 +1,37 @@
-﻿// vs-work1-week.cpp : 此檔案包含 'main' 函式。程式會於該處開始執行及結束執行。
-//
-
+﻿#include <iomanip>
 #include <iostream>
 
-int main()
-{
-    std::cout << "Hello World!\n";
+using namespace std;
+
+
+int main() {
+	int timex1, timey1, timex2, timey2, temp1, temp2, temp, many, tempcopy;
+	cout << "請輸入開始停車的時間(24小時):";
+	cin >> timex1 >> timey1;
+	cout << "請輸入離開停車的時間(24小時):";
+	cin >> timex2 >> timey2;
+	temp1 = timex1 * 60 + timey1;
+	temp2 = timex2 * 60 + timey2;
+	temp = temp2 - temp1;
+	tempcopy = temp/30;
+	switch (temp / 30) {
+		
+		case 1: case 2: case 3: case 4:
+			many = 30 * tempcopy;
+			cout << "你的停車費是: " << many << endl;
+			break;
+		case 5: case 6: case 7: case 8:
+			many = 30 * 4 + 40 * (tempcopy-4) ;
+			cout << "你的停車費是: " << many << endl;
+			break;
+		case 0: 
+			many = 0;
+			cout << "你的停車費是: " << many << endl;
+			break;
+		default:
+			many = 30 * 4 + 40 * 4 + 60 * (tempcopy-8);
+			cout << "你的停車費是: " << many << endl;
+			break;
+	}
 }
 
-// 執行程式: Ctrl + F5 或 [偵錯] > [啟動但不偵錯] 功能表
-// 偵錯程式: F5 或 [偵錯] > [啟動偵錯] 功能表
-
-// 開始使用的提示: 
-//   1. 使用 [方案總管] 視窗，新增/管理檔案
-//   2. 使用 [Team Explorer] 視窗，連線到原始檔控制
-//   3. 使用 [輸出] 視窗，參閱組建輸出與其他訊息
-//   4. 使用 [錯誤清單] 視窗，檢視錯誤
-//   5. 前往 [專案] > [新增項目]，建立新的程式碼檔案，或是前往 [專案] > [新增現有項目]，將現有程式碼檔案新增至專案
-//   6. 之後要再次開啟此專案時，請前往 [檔案] > [開啟] > [專案]，然後選取 .sln 檔案
