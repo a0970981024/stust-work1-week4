@@ -15,7 +15,6 @@ int main() {
     char ctile[10]={0};
     cout << "請輸入整數:";
     cin >> stile;
-
     
      for (int i = 0; i < size(stile); i++) {
         ctile[i] = stile[i];
